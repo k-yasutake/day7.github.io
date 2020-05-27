@@ -2,11 +2,13 @@ name: Auto Build
 on:
   push:
     branches: [ deploy ]
+    repository_dispatch:
+      type: [ build ]
 
 jobs:
   build:
     runs-on: ubuntu-18.04
-    
+
     steps:
       - name: Check the contents of the file
         uses: actions/checkout@v1
